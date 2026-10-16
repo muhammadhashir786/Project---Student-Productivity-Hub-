@@ -1,0 +1,397 @@
+/* --- 1. Global Reset & Variables --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+/* Golden */
+
+:root {
+  --bg-color: #fdfbf7; /* Soft ivory / champagne background */
+  --card-bg: #ffffff; /* Pure white cards */
+  --text-main: #3d342b; /* Deep warm bronze text (bohot readable) */
+  --text-muted: #8c8275; /* Muted warm gray / taupe */
+  --accent-olive: #b8860b; /* Rich Golden accent (olive ki jagah) */
+  --accent-amber: #854d0e; /* Deep warm amber / bronze */
+  --border-color: #e6dfc8; /* Soft golden-cream border */
+}
+
+/* Green */
+
+:root {
+  --bg-color: #f0fdf4; /* Very soft light green background */
+  --card-bg: #ffffff; /* Pure white cards */
+  --text-main: #166534; /* Deep forest green text */
+  --text-muted: #6b7280; /* Muted gray */
+  --accent-olive: #059669; /* Emerald green accent */
+  --accent-amber: #d97706; /* Warm amber */
+  --border-color: #bbf7d0; /* Soft green border */
+}
+
+/* Dark */
+
+:root {
+  --bg-color: #0f172a; /* Deep dark slate background */
+  --card-bg: #1e293b; /* Slightly lighter slate for cards */
+  --text-main: #f8fafc; /* Crisp white/light gray text */
+  --text-muted: #94a3b8; /* Muted gray for subtitles */
+  --accent-olive: #6366f1; /* Vibrant Indigo accent (replaces olive) */
+  --accent-amber: #f59e0b; /* Bright Amber */
+  --border-color: #334155; /* Dark border */
+}
+
+/* first */
+
+:root {
+  --bg-color: #fdfbf7; /* Warm off-white / light cream */
+  --card-bg: #ffffff; /* Pure white for cards */
+  --text-main: #2d3748; /* Deep charcoal / slate text */
+  --text-muted: #718096; /* Muted gray for subtitles */
+  --accent-olive: #556b2f; /* Muted olive green */
+  --accent-amber: #b45309; /* Warm amber / rust */
+  --border-color: #e2e8f0; /* Soft border color */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* --- 2. App Container --- */
+.app-container {
+  width: 100%;
+  max-width: 650px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* --- 3. Header --- */
+.app-header {
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  color: var(--text-main);
+  margin-bottom: 5px;
+}
+
+.app-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- 4. Dashboard Summary Counters --- */
+.dashboard-summary {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  flex: 1;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.stat-card span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-olive);
+}
+
+/* --- 5. Task Form Styles --- */
+.task-form-container {
+  margin-bottom: 30px;
+  background-color: var(--bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.task-form-container h2,
+.task-list-container h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: var(--text-main);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--text-main);
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #fff;
+  color: var(--text-main);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent-olive);
+}
+
+textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+/* --- 6. Buttons --- */
+.btn-primary {
+  width: 100%;
+  background-color: var(--accent-olive);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #445624;
+}
+
+/* --- 7. Task List Container --- */
+.task-list-container {
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 20px 0;
+}
+
+/* --- Additional Styles for Task Cards --- */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-card {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: flex-start; */
+  align-items: center;
+  gap: 15px;
+  transition: opacity 0.2s;
+}
+
+.task-card.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.task-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.task-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.task-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.task-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Badges */
+.badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.priority-high {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+.priority-medium {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+.priority-low {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+
+/* Action Buttons inside Task */
+.task-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.btn-toggle,
+.btn-delete {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  background: #fff;
+  transition: background 0.2s;
+}
+
+.btn-toggle:hover {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+.btn-delete:hover {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* --- Search Input Styling --- */
+.search-container {
+  margin-bottom: 15px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#search-input:focus {
+  border-color: var(--accent-olive);
+}
+
+/* --- Filter Buttons Styling --- */
+.filter-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.filter-btn {
+  flex: 1;
+  padding: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-olive);
+}
+
+.filter-btn.active {
+  background-color: var(--accent-olive);
+  color: #fff;
+  border-color: var(--accent-olive);
+}
+
+/* --- Edit Button Styling --- */
+.btn-edit {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  background: #fff;
+  transition: background 0.2s;
+}
+.btn-edit:hover {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
+/* --- 8. Responsive Design (Mobile Friendly) --- */
+@media (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .dashboard-summary {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

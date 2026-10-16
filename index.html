@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Productivity Hub</title>
+    <!-- Hum yahan apni CSS file ko link karenge jo hum agle step mein banayenge -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div class="app-container">
+      <!-- Header Section -->
+      <header class="app-header">
+        <h1>Student Productivity Hub</h1>
+        <p>Manage your assignments, deadlines, and focus with ease.</p>
+      </header>
+
+      <!-- Dashboard Summary Section (Counters) -->
+      <section class="dashboard-summary">
+        <div class="stat-card">
+          <h3>Total Tasks</h3>
+          <span id="total-count">0</span>
+        </div>
+        <div class="stat-card">
+          <h3>Completed</h3>
+          <span id="completed-count">0</span>
+        </div>
+        <div class="stat-card">
+          <h3>Pending</h3>
+          <span id="pending-count">0</span>
+        </div>
+      </section>
+
+      <!-- Task Creation Form Section -->
+      <section class="task-form-container">
+        <h2>Add New Task</h2>
+        <form id="task-form">
+          <div class="form-group">
+            <label for="task-title">Task Title *</label>
+            <input
+              type="text"
+              id="task-title"
+              placeholder="e.g., JavaScript Assignment"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="task-desc">Description / Notes</label>
+            <textarea
+              id="task-desc"
+              placeholder="Add any details, links, or notes..."
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="task-date">Due Date *</label>
+              <input type="date" id="task-date" required />
+            </div>
+
+            <div class="form-group">
+              <label for="task-priority">Priority</label>
+              <select id="task-priority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">Add Task</button>
+        </form>
+      </section>
+
+      <!-- Task List Container Section -->
+      <section class="task-list-container">
+        <h2>Your Tasks</h2>
+
+        <!-- New: Search Input Box -->
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search tasks by title..."
+          />
+        </div>
+
+        <!-- New: Filter Buttons -->
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <div id="task-list" class="task-list">
+          <!-- Tasks dynamically render honge -->
+        </div>
+      </section>
+    </div>
+
+    <!-- Hum yahan apni JavaScript file ko link karenge (jo baad mein banegi) -->
+    <script src="app.js"></script>
+  </body>
+</html>
